@@ -19,7 +19,7 @@ let package = Package(
             bundleIdentifier: "granthough.WWDC2023",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .asset("AppIcon"),
+            appIcon: .placeholder(icon: .cloud),
             accentColor: .presetColor(.purple),
             supportedDeviceFamilies: [
                 .pad,
