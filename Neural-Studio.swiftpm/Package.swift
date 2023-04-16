@@ -8,19 +8,19 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "WWDC2023",
+    name: "Neural Studio",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "WWDC2023",
+            name: "Neural Studio",
             targets: ["AppModule"],
-            bundleIdentifier: "granthough.WWDC2023",
+            bundleIdentifier: "granthough.NeuralStudio",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .cloud),
-            accentColor: .presetColor(.purple),
+            appIcon: .asset("AppIcon"),
+            accentColor: .asset("AccentColor"),
             supportedDeviceFamilies: [
                 .pad,
                 .phone

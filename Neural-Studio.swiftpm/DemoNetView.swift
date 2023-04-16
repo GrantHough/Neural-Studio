@@ -1,7 +1,7 @@
 //
 //  DemoNetView.swift
 //  WWDC2023
-//
+//  Neural Studio
 //  Created by Grant Hough on 4/14/23.
 //
 
