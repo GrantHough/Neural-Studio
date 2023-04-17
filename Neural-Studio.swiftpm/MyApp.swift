@@ -4,8 +4,9 @@ import SwiftUI
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
+            HomeView()
 //            WelcomeView()
-            ContentView()
+//            ContentView()
         }
     }
 }

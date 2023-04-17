@@ -43,7 +43,7 @@ struct WelcomeView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-    
+        .navigationBarBackButtonHidden(true)
     }
 }
 

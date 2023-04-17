@@ -22,7 +22,7 @@ struct IntroductionView: View {
                 //maybe put logo here when it is vertical to fill white space? when it's horizontal, it's full
                 Spacer()
                 			
-                Text("It's an app that allows you to try various combinations of hyperparameters to see how they affect the performance of a neural network trained to classify handwritten digits.")
+                Text("It's an app that allows you to try various combinations of hyperparameters to see how they affect the performance of a neural network trained to classify images (i.e., of handwritten digits).")
                     .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
                 
                 NavigationLink(destination: ImportanceView(), label: {

@@ -20,7 +20,7 @@ struct NeuralNetIntroView2: View {
                 
                 Spacer()
                 
-                Text("Values propogate forward through the nodes, being multiplied and added to values called weights and biases respectively to eventually form an output, such as a prediction.")
+                Text("Values propogate forward through the nodes, being modified by values called weights and biases to eventually form an output, such as a prediction.")
                     .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
                 
                 NavigationLink(destination: NeuralNetIntroView3(), label: {

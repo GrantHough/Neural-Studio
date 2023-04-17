@@ -23,7 +23,7 @@ struct EnterNeuralStudioView: View {
                 Text("Now it's time to explore over 1,000 unique combinations of hyperparameters. Let's get started.")
                     .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
                 
-                NavigationLink(destination: ContentView(), label: {
+                NavigationLink(destination: HomeView(), label: {
                     Text("Enter Neural Studio")
                         .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                         .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
