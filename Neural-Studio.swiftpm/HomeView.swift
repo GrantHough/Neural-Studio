@@ -60,7 +60,7 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: ContentView(), label: {
+                        NavigationLink(destination: LearnView(), label: {
                             Text("Learn")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
@@ -82,7 +82,7 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: WelcomeView(), label: {
+                        NavigationLink(destination: TestView(), label: {
                             Text("Test")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
@@ -119,6 +119,8 @@ struct HomeView: View {
                 }
                 .padding([.leading, .trailing], g.size.height > g.size.width ? g.size.width * 0.07: g.size.height * 0.07)
                 .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.045: g.size.height * 0.045)
+                
+              
                 
             }
         }

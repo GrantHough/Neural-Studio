@@ -1,0 +1,51 @@
+//
+//  HiddenLayersView.swift
+//  Neural Studio
+//
+//  Created by Grant Hough on 4/16/23.
+//
+
+import SwiftUI
+
+struct HiddenLayersView: View {
+    var body: some View {
+        GeometryReader{g in
+            VStack(alignment: .leading) {
+                VStack(alignment: .leading) {
+                    HStack (alignment: .top) {
+                        Text("Hidden Layers")
+                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
+                        Spacer()
+                        Text("Learn")
+                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .bold))
+                            .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
+                        Image("NeuralStudioLogo1")
+                            .resizable()
+                            .frame(width: g.size.height > g.size.width ? g.size.width * 0.045: g.size.height * 0.045, height: g.size.height > g.size.width ? g.size.width * 0.045: g.size.height * 0.045)
+                            .cornerRadius(8)
+                    }
+                }
+                .padding(.top, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+                
+                Divider()
+                
+                Text("Hidden layers are layers of nodes that lie inbetween the input and output layers. They allow for a network's computations to be broken up into multiple steps, adding complexity and allowing for higher accuracy. They are neccesary when attempting to identify complex, non-linear relationships within data.")
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .semibold))
+                
+                Divider()
+               
+                
+            }
+            .padding([.leading, .trailing], g.size.height > g.size.width ? g.size.width * 0.07: g.size.height * 0.07)
+            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.045: g.size.height * 0.045)
+            
+        }
+    }
+}
+
+
+struct HiddenLayersView_Previews: PreviewProvider {
+    static var previews: some View {
+        HiddenLayersView()
+    }
+}
