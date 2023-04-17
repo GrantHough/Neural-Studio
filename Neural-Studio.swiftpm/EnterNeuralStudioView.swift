@@ -12,7 +12,7 @@ struct EnterNeuralStudioView: View {
         GeometryReader{g in
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
-                    Text("Time to Experiment")
+                    Text("It's time to experiment.")
                         .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
                     
                 }

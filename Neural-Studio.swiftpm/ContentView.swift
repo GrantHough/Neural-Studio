@@ -166,9 +166,10 @@ struct ContentView: View {
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.11: g.size.height * 0.11, weight: .bold))
                             .multilineTextAlignment(.center)
                             .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.004: g.size.height * 0.004)
+                            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.005: g.size.height * 0.005)
                         
                         //Neural Network
-                        Image("testnetgraphic")
+                        Image("twohiddenlayer")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .padding(10)
@@ -177,9 +178,12 @@ struct ContentView: View {
                         //everything but iphone portrait mode
                         if ((horizontalSizeClass == .compact && verticalSizeClass == .regular) || (horizontalSizeClass == .regular && verticalSizeClass == .regular)) {
                             //Container for variables
-                            HStack {
+                            HStack (alignment: .firstTextBaseline) {
                                 
                                 VStack (alignment: .leading) {
+                                    Text("Hyperparameters:")
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.042: g.size.height * 0.042, weight: .bold))
+        
                                     HStack {
                                         Text("Number of Epochs: ")
                                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
@@ -187,10 +191,12 @@ struct ContentView: View {
                                             
                                             ForEach(epochs, id: \.self) {
                                                 Text(String($0))
-                                                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                                    
                                             }
                                         }
                                         .pickerStyle(.menu)
+                                        .scaleEffect(1.8)
+                               
                                         
                                     }
                                     
@@ -201,10 +207,11 @@ struct ContentView: View {
                                             
                                             ForEach(learningRates, id: \.self) {
                                                 Text(String($0))
-                                                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                                    
                                             }
                                         }
                                         .pickerStyle(.menu)
+                                        .scaleEffect(1.8)
                                         
                                     }
                                     
@@ -215,10 +222,11 @@ struct ContentView: View {
                                             
                                             ForEach(activationFunctions, id: \.self) {
                                                 Text($0)
-                                                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                                    
                                             }
                                         }
                                         .pickerStyle(.menu)
+                                        .scaleEffect(1.8)
                                         
                                     }
                                     
@@ -229,16 +237,29 @@ struct ContentView: View {
                                             
                                             ForEach(hiddenLayers, id: \.self) {
                                                 Text(String($0))
-                                                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                                    
                                             }
                                         }
                                         .pickerStyle(.menu)
+                                        .scaleEffect(1.8)
                                         
                                     }
                                     
                                 }
+                                .frame(
+                                    minWidth: 0,
+                                    maxWidth: .infinity,
+                                    minHeight: 0,
+                                    maxHeight: .infinity,
+                                    alignment: .center
+                                )
+                                .padding(.trailing, 10)
                                 
                                 VStack (alignment: .leading) {
+                                    
+                                    Text("Model Stats:")
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.042: g.size.height * 0.042, weight: .bold))
+        
                                     //do something to put a 0 if there is a number that is too short
                                     Text("Peak Accuracy: \((String(round((getPeakAccuracy()*100)*100)/100)))%")
                                         .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
@@ -252,8 +273,17 @@ struct ContentView: View {
                                     Text("Model Size: \(modelSizes[Int(hiddenLayerSelection)!-1])KB")
                                         .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
                                 }
+                                .frame(
+                                    minWidth: 0,
+                                    maxWidth: .infinity,
+                                    minHeight: 0,
+                                    maxHeight: .infinity,
+                                    alignment: .center
+                                )
                                 
                             }
+                            .padding(.horizontal, 10)
+                
                         }
                         
                         //iphone portrait mode
@@ -261,9 +291,13 @@ struct ContentView: View {
                             
                             //Container for variables
                             HStack {
-                                
                                 HStack {
                                     VStack (alignment: .leading) {
+                                        
+                                        Text("Hyperparameters:")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.042: g.size.height * 0.042, weight: .bold))
+            
+                                        
                                         HStack {
                                             Text("Number of Epochs: ")
                                                 .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
@@ -275,6 +309,7 @@ struct ContentView: View {
                                                 }
                                             }
                                             .pickerStyle(.menu)
+                                            .scaleEffect(1.8)
                                             
                                         }
                                         
@@ -289,6 +324,7 @@ struct ContentView: View {
                                                 }
                                             }
                                             .pickerStyle(.menu)
+                                            .scaleEffect(1.8)
                                             
                                         }
                                     }
@@ -305,6 +341,7 @@ struct ContentView: View {
                                                 }
                                             }
                                             .pickerStyle(.menu)
+                                            .scaleEffect(1.8)
                                             
                                         }
                                         
@@ -319,31 +356,39 @@ struct ContentView: View {
                                                 }
                                             }
                                             .pickerStyle(.menu)
+                                            .scaleEffect(1.8)
                                             
                                         }
                                     }
                                     
                                 }
                                 
-                                HStack () {
-                                    //do something to put a 0 if there is a number that is too short
+                                VStack {
                                     
-                                    VStack (alignment: .leading) {
-                                        Text("Peak Accuracy: \((String(round((getPeakAccuracy()*100)*100)/100)))%")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
-                                            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
-                                        Text("Final Accuracy: \((String(round((getFinalAccuracy()*100)*100)/100)))%")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
-                                            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
-                                    }
                                     
-                                    VStack (alignment: .leading) {
+                                    Text("Model Stats:")
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.042: g.size.height * 0.042, weight: .bold))
+        
+                                    HStack () {
+                                        //do something to put a 0 if there is a number that is too short
                                         
-                                        Text("Training Time: \(String(round(getSummedTime()*10)/10)) seconds")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
-                                            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
-                                        Text("Model Size: \(modelSizes[Int(hiddenLayerSelection)!-1])KB")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                        VStack (alignment: .leading) {
+                                            Text("Peak Accuracy: \((String(round((getPeakAccuracy()*100)*100)/100)))%")
+                                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                                .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                            Text("Final Accuracy: \((String(round((getFinalAccuracy()*100)*100)/100)))%")
+                                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                                .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                        }
+                                        
+                                        VStack (alignment: .leading) {
+                                            
+                                            Text("Training Time: \(String(round(getSummedTime()*10)/10)) seconds")
+                                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                                .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                            Text("Model Size: \(modelSizes[Int(hiddenLayerSelection)!-1])KB")
+                                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                        }
                                     }
                                 }
                                 
@@ -360,7 +405,7 @@ struct ContentView: View {
                         alignment: .center
                     )
                     .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
-                    .padding(.top, 0)
+                    .padding(.top, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
                 }
                 .ignoresSafeArea()
                 .frame(
