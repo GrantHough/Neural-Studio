@@ -24,10 +24,10 @@ struct WelcomeView: View {
                     Spacer()
                     //maybe put logo here when it is vertical to fill white space? when it's horizontal, it's full
                     
-                    Text("Visualize the effects of hyperpameters on neural network performance.")
-                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.07: g.size.height * 0.07, weight: .semibold))
+                    Text("Visualize and quantify the effects of hyperparameters on neural network performance.")
+                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.072: g.size.height * 0.072, weight: .semibold))
                     
-                    NavigationLink(destination: ContentView(), label: {
+                    NavigationLink(destination: IntroductionView(), label: {
                         Text("Get Started")
                             .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                             .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
@@ -35,7 +35,6 @@ struct WelcomeView: View {
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
                             .background(Color("Primary Accent"))
                     })
-             
                     
                 }
                 .padding([.leading, .trailing], g.size.height > g.size.width ? g.size.width * 0.07: g.size.height * 0.07)
@@ -44,7 +43,7 @@ struct WelcomeView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        
+    
     }
 }
 

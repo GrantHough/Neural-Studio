@@ -56,6 +56,10 @@ struct ContentView: View {
     @State var learningRateSelection = 0.1
     @State var activationFunctionSelection = "ReLU"
     @State var hiddenLayerSelection = "2"
+    
+    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
    
     func getPeakAccuracy() -> Double{
 //
@@ -136,96 +140,237 @@ struct ContentView: View {
         
     }
     
+    @State private var orientation = UIDeviceOrientation.unknown
+    
     var body: some View {
-        
-        NavigationView {
-            
-            GeometryReader{g in
-                
-                VStack {
-                    //Title
-                    Text("Your Neural Network")
-                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.11: g.size.height * 0.11, weight: .bold))
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.004: g.size.height * 0.004)
-                        .padding(.top, g.size.height > g.size.width ? g.size.width * 0.012: g.size.height * 0.012)
-                    
-                    //Neural Network
-                    Rectangle()
 
-                        .padding(.vertical, g.size.height > g.size.width ? g.size.width * 0.008: g.size.height * 0.08)
-                        .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.012: g.size.height * 0.012)
-                        .foregroundColor(Color("Primary Accent"))
-                    
-                    //Container for variables
-                    HStack {
+        NavigationView  {
+        
+            GeometryReader{g in
+                ZStack {
+//
+//                    HStack{
+//                        Text("Neural Studio")
+//                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .bold))
+//                            .padding(.horizontal, 5)
+//                        Image("NeuralStudioLogo1")
+//                            .resizable()
+//                            .frame(width: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, height: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06)
+//                            .cornerRadius(8)
+//                    }
+//                    .position(x: UIScreen.main.bounds.size.width - UIScreen.main.bounds.size.width*0.18, y:UIScreen.main.bounds.size.height - UIScreen.main.bounds.size.height*0.95)
+              
+                    VStack (alignment: .center) {
+                        //Title
+                        Text("Neural Studio")
+                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.11: g.size.height * 0.11, weight: .bold))
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.004: g.size.height * 0.004)
                         
-                        VStack {
+                        //Neural Network
+                        Image("testnetgraphic")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(10)
+                        
+                        
+                        //everything but iphone portrait mode
+                        if ((horizontalSizeClass == .compact && verticalSizeClass == .regular) || (horizontalSizeClass == .regular && verticalSizeClass == .regular)) {
+                            //Container for variables
                             HStack {
-                                Text("Number of Epochs: ")
-                                Picker("Epochs", selection: $epochsSelection) {
-                                    
-                                    ForEach(epochs, id: \.self) {
-                                        Text(String($0))
+                                
+                                VStack (alignment: .leading) {
+                                    HStack {
+                                        Text("Number of Epochs: ")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                        Picker("Epochs", selection: $epochsSelection) {
+                                            
+                                            ForEach(epochs, id: \.self) {
+                                                Text(String($0))
+                                                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                            }
+                                        }
+                                        .pickerStyle(.menu)
+                                        
                                     }
+                                    
+                                    HStack {
+                                        Text("Learning Rate: ")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                        Picker("Learning Rate", selection: $learningRateSelection) {
+                                            
+                                            ForEach(learningRates, id: \.self) {
+                                                Text(String($0))
+                                                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                            }
+                                        }
+                                        .pickerStyle(.menu)
+                                        
+                                    }
+                                    
+                                    HStack {
+                                        Text("Activation Function: ")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                        Picker("Activation Function", selection: $activationFunctionSelection) {
+                                            
+                                            ForEach(activationFunctions, id: \.self) {
+                                                Text($0)
+                                                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                            }
+                                        }
+                                        .pickerStyle(.menu)
+                                        
+                                    }
+                                    
+                                    HStack {
+                                        Text("Hidden Layers: ")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                        Picker("Hidden Layers", selection: $hiddenLayerSelection) {
+                                            
+                                            ForEach(hiddenLayers, id: \.self) {
+                                                Text(String($0))
+                                                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                            }
+                                        }
+                                        .pickerStyle(.menu)
+                                        
+                                    }
+                                    
                                 }
-                                .pickerStyle(.menu)
+                                
+                                VStack (alignment: .leading) {
+                                    //do something to put a 0 if there is a number that is too short
+                                    Text("Peak Accuracy: \((String(round((getPeakAccuracy()*100)*100)/100)))%")
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                        .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                    Text("Final Accuracy: \((String(round((getFinalAccuracy()*100)*100)/100)))%")
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                        .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                    Text("Training Time: \(String(round(getSummedTime()*10)/10)) seconds")
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                        .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                    Text("Model Size: \(modelSizes[Int(hiddenLayerSelection)!-1])KB")
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                }
                                 
                             }
-                            
-                            
-                            HStack {
-                                Text("Learning Rate: ")
-                                Picker("Learning Rate", selection: $learningRateSelection) {
-                                    
-                                    ForEach(learningRates, id: \.self) {
-                                        Text(String($0))
-                                    }
-                                }
-                                .pickerStyle(.menu)
-                                
-                            }
-                            
-                            
-                            HStack {
-                                Text("Activation Function: ")
-                                Picker("Activation Function", selection: $activationFunctionSelection) {
-                                    
-                                    ForEach(activationFunctions, id: \.self) {
-                                        Text($0)
-                                    }
-                                }
-                                .pickerStyle(.menu)
-                                
-                            }
-                            
-                            HStack {
-                                Text("Hidden Layers: ")
-                                Picker("Hidden Layers", selection: $hiddenLayerSelection) {
-                                    
-                                    ForEach(hiddenLayers, id: \.self) {
-                                        Text(String($0))
-                                    }
-                                }
-                                .pickerStyle(.menu)
-                                
-                            }
-                            
                         }
                         
-                        VStack {
-                            //basically rounds it to 2 decimal places
-                            Text("Peak Accuracy: \((String(getPeakAccuracy()*100)))%")
-                            Text("Final Accuracy: \((String(getFinalAccuracy()*100)))%")
-                            Text("Training Time: \(String(getSummedTime())) seconds")
-                            Text("Model Size: \((modelSizes[Int(hiddenLayerSelection)!-1]))KB")
+                        //iphone portrait mode
+                        else {
+                            
+                            //Container for variables
+                            HStack {
+                                
+                                HStack {
+                                    VStack (alignment: .leading) {
+                                        HStack {
+                                            Text("Number of Epochs: ")
+                                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                            Picker("Epochs", selection: $epochsSelection) {
+                                                
+                                                ForEach(epochs, id: \.self) {
+                                                    Text(String($0))
+                                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                                }
+                                            }
+                                            .pickerStyle(.menu)
+                                            
+                                        }
+                                        
+                                        HStack {
+                                            Text("Learning Rate: ")
+                                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                            Picker("Learning Rate", selection: $learningRateSelection) {
+                                                
+                                                ForEach(learningRates, id: \.self) {
+                                                    Text(String($0))
+                                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                                }
+                                            }
+                                            .pickerStyle(.menu)
+                                            
+                                        }
+                                    }
+                                    
+                                    VStack (alignment: .leading) {
+                                        HStack {
+                                            Text("Activation Function: ")
+                                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                            Picker("Activation Function", selection: $activationFunctionSelection) {
+                                                
+                                                ForEach(activationFunctions, id: \.self) {
+                                                    Text($0)
+                                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                                }
+                                            }
+                                            .pickerStyle(.menu)
+                                            
+                                        }
+                                        
+                                        HStack {
+                                            Text("Hidden Layers: ")
+                                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                            Picker("Hidden Layers", selection: $hiddenLayerSelection) {
+                                                
+                                                ForEach(hiddenLayers, id: \.self) {
+                                                    Text(String($0))
+                                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .semibold))
+                                                }
+                                            }
+                                            .pickerStyle(.menu)
+                                            
+                                        }
+                                    }
+                                    
+                                }
+                                
+                                HStack () {
+                                    //do something to put a 0 if there is a number that is too short
+                                    
+                                    VStack (alignment: .leading) {
+                                        Text("Peak Accuracy: \((String(round((getPeakAccuracy()*100)*100)/100)))%")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                        Text("Final Accuracy: \((String(round((getFinalAccuracy()*100)*100)/100)))%")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                    }
+                                    
+                                    VStack (alignment: .leading) {
+                                        
+                                        Text("Training Time: \(String(round(getSummedTime()*10)/10)) seconds")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                            .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.006: g.size.height * 0.006)
+                                        Text("Model Size: \(modelSizes[Int(hiddenLayerSelection)!-1])KB")
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .medium))
+                                    }
+                                }
+                                
+                            }
+                            
                         }
                         
                     }
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        minHeight: 0,
+                        maxHeight: .infinity,
+                        alignment: .center
+                    )
+                    .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
+                    .padding(.top, 0)
                 }
-                .padding([.leading, .trailing], g.size.height > g.size.width ? g.size.width * 0.07: g.size.height * 0.07)
-                .padding(.top, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.045: g.size.height * 0.045)
+                .ignoresSafeArea()
+                .frame(
+                    minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 0,
+                    maxHeight: .infinity,
+                    alignment: .center
+                )
+                .padding(.top, 0)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
