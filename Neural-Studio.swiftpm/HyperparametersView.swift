@@ -20,7 +20,7 @@ struct HyperparametersView: View {
                 
                 Spacer()
                 
-                Text("Hyperparameters are the things we can control. The size of a neural network, how much it learns, and how fast it learns are all governed by hyperparameters.")
+                Text("Hyperparameters are values we manually tweak to optimize neural networks. The size of a neural network, how much it learns, and how fast it learns are all governed by hyperparameters.")
                     .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
                 
                 NavigationLink(destination: EnterNeuralStudioView(), label: {

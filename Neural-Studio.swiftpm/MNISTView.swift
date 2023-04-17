@@ -1,19 +1,19 @@
 //
-//  HiddenLayersView.swift
+//  MNISTView.swift
 //  Neural Studio
 //
-//  Created by Grant Hough on 4/16/23.
+//  Created by Grant Hough on 4/17/23.
 //
 
 import SwiftUI
 
-struct HiddenLayersView: View {
+struct MNISTView: View {
     var body: some View {
         GeometryReader{g in
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
                     HStack (alignment: .top) {
-                        Text("Hidden Layers")
+                        Text("MNIST Dataset")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
                         Spacer()
                         Text("Learn")
@@ -29,18 +29,19 @@ struct HiddenLayersView: View {
                 
                 Divider()
                 
-                Text("Hidden layers are layers of nodes that lie inbetween the input and output layers. They allow for a network's computations to be broken up into multiple steps, adding complexity and allowing for higher accuracy. They are neccesary when attempting to identify complex, non-linear relationships within data.")
+                Text("The neural network you see in your Studio is trained on the MNIST dataset. It's a very famous dataset used for learning and benchmarking various forms of logistic regression models. Below are some examples of images from the datset.")
                     .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .semibold))
                 
                 Divider()
                 
-                HStack (spacing: 32) {
-                    Image("twohiddenlayer")
+                HStack {
+                    Spacer()
+                    Image("mnist")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                    Image("threehiddenlayer")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06)
+                    
+                    Spacer()
                 }
                 .padding(20)
                 
@@ -52,9 +53,8 @@ struct HiddenLayersView: View {
     }
 }
 
-
-struct HiddenLayersView_Previews: PreviewProvider {
+struct MNISTView_Previews: PreviewProvider {
     static var previews: some View {
-        HiddenLayersView()
+        MNISTView()
     }
 }

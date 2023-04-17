@@ -28,8 +28,7 @@ struct LearnView: View {
                 .padding(.top, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
                 
                 Divider()
-            
-                
+        
                 ScrollView() {
                     HStack(alignment: .center) {
                         
@@ -128,11 +127,20 @@ struct LearnView: View {
                     
                     HStack(alignment: .center) {
                         
-                        Text("More information coming soon!")
+                        Text("Learn about the importance of the MNIST dataset.")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
                             .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
                         
                         Spacer()
+                    
+                        NavigationLink(destination: MNISTView(), label: {
+                            Text("MNIST Dataset")
+                                .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
+                                .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
+                                .foregroundColor(.white)
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .background(Color("Primary Accent"))
+                        })
                  
                     }
                     .padding(.vertical, 20)
