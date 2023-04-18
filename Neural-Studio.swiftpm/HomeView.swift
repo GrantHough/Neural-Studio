@@ -32,18 +32,25 @@ struct HomeView: View {
                     
                     HStack(alignment: .center) {
                         
-                        Text("Customize hyperparameters and quantify how they affect a neural network's performance in real-time.")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+                        VStack(alignment: .leading) {
+                            
+                            Text("Your Studio")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("Customize hyperparameters and quantify how they affect a neural network's performance in real-time.")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+
                         Spacer()
                         
                         NavigationLink(destination: ContentView(), label: {
-                            Text("Your Studio")
+                            Text("Visit")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
                                 .foregroundColor(.white)
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
                                 .background(Color("Primary Accent"))
                         })
                        
@@ -53,19 +60,26 @@ struct HomeView: View {
                     Divider()
                     
                     HStack(alignment: .center) {
-                        
-                        Text("View relevant information on neural networks and hyperparameters to gain a better understanding of your Studio.")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+                    
+                        VStack(alignment: .leading) {
+                            
+                            Text("Learn")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("View relevant information on neural networks and hyperparameters to gain a better understanding of your Studio.")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
                         
                         Spacer()
                         
                         NavigationLink(destination: LearnView(), label: {
-                            Text("Learn")
+                            Text("Visit")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
                                 .foregroundColor(.white)
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
                                 .background(Color("Primary Accent"))
                         })
                        
@@ -98,18 +112,25 @@ struct HomeView: View {
                     
                     HStack(alignment: .center) {
                         
-                        Text("Still unsure about Neural Studio? Revisit the entry storyboard.")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+                        VStack(alignment: .leading) {
+                            
+                            Text("Go Back")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("Still unsure about Neural Studio? Revisit the entry storyboard.")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+               
                         Spacer()
                         
                         NavigationLink(destination: WelcomeView(), label: {
-                            Text("Go Back")
+                            Text("Visit")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
                                 .foregroundColor(.white)
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
                                 .background(Color("Primary Accent"))
                         })
                        

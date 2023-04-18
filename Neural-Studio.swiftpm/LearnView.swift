@@ -31,19 +31,27 @@ struct LearnView: View {
         
                 ScrollView() {
                     HStack(alignment: .center) {
-                        
-                        Text("Learn about the activation function hyperparameter and the ones present on Neural Studio.")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+                     
+                        VStack(alignment: .leading) {
+                            
+                            Text("Activation Functions")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("Learn about the activation function hyperparameter and the ones present on Neural Studio.")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+               
                         
                         Spacer()
                         
                         NavigationLink(destination: ActivationFunctionsView(), label: {
-                            Text("Activation Functions")
+                            Text("Learn")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
                                 .foregroundColor(.white)
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
                                 .background(Color("Primary Accent"))
                         })
                        
@@ -55,18 +63,25 @@ struct LearnView: View {
                     
                     HStack(alignment: .center) {
                         
-                        Text("Dive into the hyperparameters of learning rates and epochs.")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+                        VStack(alignment: .leading) {
+                            
+                            Text("Learning Rates and Epochs")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("Dive into the hyperparameters of learning rates and epochs.")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+               
                         Spacer()
                         
                         NavigationLink(destination: LearningRateEpochsView(), label: {
-                            Text("Learning Rates and Epochs")
+                            Text("Learn")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
                                 .foregroundColor(.white)
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
                                 .background(Color("Primary Accent"))
                         })
                        
@@ -79,19 +94,26 @@ struct LearnView: View {
                     
                   
                     HStack(alignment: .center) {
-                        
-                        Text("Gain a brief introduction on hidden layers and their effect on neural networks.")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+ 
+                        VStack(alignment: .leading) {
+                            
+                            Text("Hidden Layers")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("Gain a brief introduction on hidden layers and their effect on neural networks.")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+               
                         Spacer()
                         
                         NavigationLink(destination: HiddenLayersView(), label: {
-                            Text("Hidden Layers")
+                            Text("Learn")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
                                 .foregroundColor(.white)
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
                                 .background(Color("Primary Accent"))
                         })
                        
@@ -103,18 +125,25 @@ struct LearnView: View {
                     
                     HStack(alignment: .center) {
                         
-                        Text("Learn about the specific input and output sizes of the neural network in your Studio.")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+                        VStack(alignment: .leading) {
+                            
+                            Text("Input and Output Sizes")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("Learn about the specific input and output sizes of the neural network in your Studio.")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+               
                         Spacer()
                         
                         NavigationLink(destination: InputOutputSizeView(), label: {
-                            Text("Inputs and Outputs")
+                            Text("Learn")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
                                 .foregroundColor(.white)
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
                                 .background(Color("Primary Accent"))
                         })
                        
@@ -124,21 +153,27 @@ struct LearnView: View {
                     
                     Divider()
                     
-                    
                     HStack(alignment: .center) {
-                        
-                        Text("Learn about the importance of the MNIST dataset.")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+                    
+                        VStack(alignment: .leading) {
+                            
+                            Text("MNIST Dataset")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("Learn about the importance of the MNIST dataset.")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+               
                         Spacer()
                     
                         NavigationLink(destination: MNISTView(), label: {
-                            Text("MNIST Dataset")
+                            Text("Learn")
                                 .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
                                 .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
                                 .foregroundColor(.white)
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
                                 .background(Color("Primary Accent"))
                         })
                  
