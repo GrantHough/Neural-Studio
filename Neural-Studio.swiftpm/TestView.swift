@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import CoreML
+import Vision
 
 struct TestView: View {
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            
+            // do machine learning stuff
+            
+
+        } label: {
+            Text("Click me")
+        }
     }
 }
 

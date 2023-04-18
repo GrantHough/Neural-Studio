@@ -88,28 +88,37 @@ struct HomeView: View {
                     
                     Divider()
                     
-//                    HStack(alignment: .center) {
-//                        
-//                        Text("Test out a neural network with the MNIST data set trained with good hyperparameters")
-//                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-//                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-//                        
-//                        Spacer()
-//                        
-//                        NavigationLink(destination: TestView(), label: {
-//                            Text("Test")
-//                                .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
-//                                .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
-//                                .foregroundColor(.white)
-//                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .semibold))
-//                                .background(Color("Primary Accent"))
-//                        })
-//                       
-//                    }
-//                    .padding(.vertical, 20)
-//                    
-//                    Divider()
+                    HStack(alignment: .center) {
                     
+                        VStack(alignment: .leading) {
+                            
+                            Text("Test")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
+                                .padding(.bottom, 8)
+                            Text("Test osfdiospdfoipsdfiposdfpoi")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                               
+                        }
+                        .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: TestView(), label: {
+                            Text("Visit")
+                                .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)
+                                .padding(.vertical,  g.size.height > g.size.width ? g.size.width * 0.027: g.size.height * 0.027)
+                                .foregroundColor(.white)
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                                .background(Color("Primary Accent"))
+                        })
+                       
+                    }
+                    .padding(.vertical, 20)
+                    
+                    Divider()
+                    
+//
+//
                     HStack(alignment: .center) {
                         
                         VStack(alignment: .leading) {

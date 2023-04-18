@@ -380,7 +380,7 @@ struct ContentView: View {
                                             
                                             ForEach(hiddenLayers, id: \.self) {
                                                 Text(String($0))
-                                                    
+                             		                       
                                             }
                                         }
                                         .pickerStyle(.menu)

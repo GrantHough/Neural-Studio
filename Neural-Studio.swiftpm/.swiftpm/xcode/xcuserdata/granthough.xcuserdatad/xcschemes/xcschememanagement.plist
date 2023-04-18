@@ -32,6 +32,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>Neural Studio</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>WWDC2023</key>
 		<dict>
 			<key>primary</key>
