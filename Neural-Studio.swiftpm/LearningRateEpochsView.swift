@@ -16,7 +16,7 @@ struct LearningRateEpochsView: View {
                         Text("Learning Rate and Epochs")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
                         Spacer()
-                        Text("Learn")
+                        Text("Appendix")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .bold))
                             .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
                         Image("NeuralStudioLogo1")
@@ -30,7 +30,7 @@ struct LearningRateEpochsView: View {
                 Divider()
                 
                 Text( "The concepts of a learning rate and an epoch go hand-in-hand. The learning rate is how fast the model learns. The higher the learning rate, the larger the step during the optimization process known as gradient descent. An epoch is one iteration of gradient descent. Each epoch appropriates to a step down the gradient.")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .regular))
                 
                 Divider()
                

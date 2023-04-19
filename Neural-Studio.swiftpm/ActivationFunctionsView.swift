@@ -16,7 +16,7 @@ struct ActivationFunctionsView: View {
                         Text("Activation Functions")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
                         Spacer()
-                        Text("Learn")
+                        Text("Appendix")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .bold))
                             .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
                         Image("NeuralStudioLogo1")
@@ -30,17 +30,23 @@ struct ActivationFunctionsView: View {
                 Divider()
                 
                 Text("Activation functions serve many purposes, both simple and complex. Mainly, they help to add non-linearity to a model so that it can recognize non-linear relationships. For example, the relationship between rainfall and apple yield on a farm is not linear.")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .regular))
                 
                 Divider()
                 
                 ScrollView() {
                     HStack(alignment: .center) {
                         
-                        Text("Sigmoid Function - best for probabilities or binary classification, ranges from 0 to 1")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .medium))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+                        VStack (alignment: .leading) {
+                            Text("Sigmoid Function")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .bold))
+                            Text("Best for probabilities or binary classification, ranges from 0 to 1")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .regular))
+                                
+                            
+                        }.padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
                         
+                       
                         Spacer()
                         
                         Image("sigmoid")
@@ -55,10 +61,15 @@ struct ActivationFunctionsView: View {
                     
                     HStack(alignment: .center) {
                         
-                        Text("Tanh Function - also best for probabilities or binary classification, 0-centric, ranges from -1 to 1")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .medium))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+                        VStack (alignment: .leading) {
+                            Text("Tanh Function")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .bold))
+                            Text("Also best for probabilities or binary classification, 0-centric, ranges from -1 to 1")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .regular))
+                                
+                            
+                        }.padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+                    
                         Spacer()
                         
                         Image("tanh")
@@ -74,11 +85,15 @@ struct ActivationFunctionsView: View {
                     
                   
                     HStack(alignment: .center) {
-                        
-                        Text("ReLU Function - fast calculation time, does not allow for a negative gradient, ranges from 0 to infinity")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .medium))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+                        VStack (alignment: .leading) {
+                            Text("ReLU Function")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .bold))
+                            Text("Fast calculation time, does not allow for a negative gradient, ranges from 0 to infinity")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .regular))
+                                
+                            
+                        }.padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+                    
                         Spacer()
                         
                         Image("relu")
@@ -93,11 +108,15 @@ struct ActivationFunctionsView: View {
                     Divider()
                     
                     HStack(alignment: .center) {
-                        
-                        Text("Leaky ReLU Function - also has quick calculation time, tolerance for negative gradient, ranges from -infinity to infinity")
-                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .medium))
-                            .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
-                        
+                        VStack (alignment: .leading) {
+                            Text("Leaky ReLU Function")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .bold))
+                            Text("Also has quick calculation time, tolerance for negative gradient, ranges from -infinity to infinity")
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.043: g.size.height * 0.043, weight: .regular))
+                                
+                            
+                        }.padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
+                    
                         Spacer()
                         
                         Image("leaky relu")

@@ -4,8 +4,8 @@ import SwiftUI
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-//            WelcomeView()
-            HomeView()
+            WelcomeView()
+//            HomeView()
         }
     }
 }
@@ -26,3 +26,4 @@ extension Double {
 func percentToString(percent: Double) -> String {
     return "\(String(percent))%"
 }
+

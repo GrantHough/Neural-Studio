@@ -16,7 +16,7 @@ struct InputOutputSizeView: View {
                         Text("Input and Output Size")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
                         Spacer()
-                        Text("Learn")
+                        Text("Appendix")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .bold))
                             .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
                         Image("NeuralStudioLogo1")
@@ -30,7 +30,7 @@ struct InputOutputSizeView: View {
                 Divider()
                 
                 Text("You may wonder why the input size on the neural network in your Studio is 784 nodes and the output size is 10 nodes. Well, each of the 784 input nodes represents a pixel in a 28 pixel by 28 pixel image of a digit and the 10 nodes at the end represent 1 of 10 possible digits (i.e., 0, 1, 2...9).")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .regular))
                 
                 Divider()
                 

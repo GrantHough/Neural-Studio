@@ -21,7 +21,7 @@ struct NeuralNetIntroView3: View {
                 Spacer()
                 
                 Text("Weights and biases are automatically optimized through a process called gradient descent. So what can we control?")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .regular))
                 
                 NavigationLink(destination: HyperparametersView(), label: {
                     Text("Next Page")

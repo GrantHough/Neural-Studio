@@ -16,7 +16,7 @@ struct MNISTView: View {
                         Text("MNIST Dataset")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
                         Spacer()
-                        Text("Learn")
+                        Text("Appendix")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .bold))
                             .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
                         Image("NeuralStudioLogo1")
@@ -30,7 +30,7 @@ struct MNISTView: View {
                 Divider()
                 
                 Text("The neural network you see in your Studio is trained on the MNIST dataset. It's a very famous dataset used for learning and benchmarking various forms of logistic regression models. Below are some examples of images from the datset.")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .regular))
                 
                 Divider()
                 

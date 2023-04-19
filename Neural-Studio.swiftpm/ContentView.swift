@@ -86,7 +86,9 @@ struct ContentView: View {
             
            
         })
+        peakAccuracy = peak
         return peak
+       
         
     }
     
@@ -158,7 +160,32 @@ struct ContentView: View {
         }
     }
     
+    func getImageSourceDark() -> String{
+        if (hiddenLayerSelection == "1") {
+            return "onehiddenlayerdark"
+        }
+        else if (hiddenLayerSelection == "2") {
+            return "twohiddenlayerdark"
+        }
+        else if (hiddenLayerSelection == "3") {
+            return "threehiddenlayerdark"
+        }
+        else if (hiddenLayerSelection == "4") {
+            return "fourhiddenlayerdark"
+        }
+        else {
+            return "testnetgraphic"
+        }
+    }
+    
     @State private var orientation = UIDeviceOrientation.unknown
+    @State var peakAccuracy = 0.00
+    @State var firstTime = true
+    @State var secondTime = false
+    @State private var showingAlert = false
+    @State private var showingAlert2 = false
+    @Environment(\.colorScheme) var colorScheme
+    
     
     var body: some View {
 
@@ -190,17 +217,31 @@ struct ContentView: View {
                                 .multilineTextAlignment(.center)
                                 .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
                             
-                            
-                            //Neural Network
-                            Image(getImageSource())
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .padding(10)
-                                .padding(.top, 20)
-                                .padding(.trailing, 28)
-                                .transition(.scale.animation(.easeOut))
-                            
-                            
+                            if(colorScheme == .dark) {
+                                //Neural Network
+                                Image(getImageSourceDark())
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding(10)
+                                    .padding(.top, 20)
+                                    .padding(.trailing, 28)
+                                    .transition(.scale.animation(.easeOut))
+                                    .shadow(radius: 2)
+                                
+                            } else {
+                                //Neural Network
+                                Image(getImageSource())
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding(10)
+                                    .padding(.top, 20)
+                                    .padding(.trailing, 28)
+                                    .transition(.scale.animation(.easeOut))
+                                    .shadow(radius: 2)
+                                
+                            }
+                          
+
                             //Container for variables
                             HStack (alignment: .firstTextBaseline) {
                                 
@@ -210,13 +251,13 @@ struct ContentView: View {
         
                                     HStack {
                                         Text("Number of Epochs: ")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         Picker("Epochs", selection: $epochsSelection) {
                                             
                                             ForEach(epochs, id: \.self) {
                                                 Text(String($0))
-                                                    
                                             }
+                                            
                                         }
                                         .pickerStyle(.menu)
                                         .scaleEffect(1.6)
@@ -226,7 +267,7 @@ struct ContentView: View {
                                     
                                     HStack {
                                         Text("Learning Rate: ")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         Picker("Learning Rate", selection: $learningRateSelection) {
                                             
                                             ForEach(learningRates, id: \.self) {
@@ -241,7 +282,7 @@ struct ContentView: View {
                                     
                                     HStack {
                                         Text("Activation Function: ")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                             .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.015: g.size.height * 0.015)
                                         Picker("Activation Function", selection: $activationFunctionSelection) {
                                             
@@ -257,7 +298,7 @@ struct ContentView: View {
                                     
                                     HStack {
                                         Text("Hidden Layers: ")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         Picker("Hidden Layers", selection: $hiddenLayerSelection) {
                                             
                                             ForEach(hiddenLayers, id: \.self) {
@@ -288,16 +329,33 @@ struct ContentView: View {
         
                                     //do something to put a 0 if there is a number that is too short
                                     Text("Peak Accuracy: \((String(round((getPeakAccuracy()*100)*100)/100)))%")
-                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.012: g.size.height * 0.012)
+                                        .onChange(of: peakAccuracy) { newValue in
+                                            if (secondTime) {
+                                                secondTime = false
+                                                showingAlert2 = true
+                                            }
+                                            if (firstTime) {
+                                                secondTime = true
+                                                showingAlert = true
+                                            }
+                                           
+                                        }
+                                        .alert(isPresented: $showingAlert2) {
+                                            Alert(title: Text("Well done!"), message: Text("Now, take a look at how the model stats have changed. Try to identify patterns and trends!"), dismissButton: .default(Text("Got it!")))
+                                        }
                                     Text("Final Accuracy: \((String(round((getFinalAccuracy()*100)*100)/100)))%")
-                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.012: g.size.height * 0.012)
+                                        .alert(isPresented: $showingAlert) {
+                                            Alert(title: Text("Welcome to your studio!"), message: Text("Try changing some hyperparameters."), dismissButton: .default(Text("Got it!")))
+                                        }
                                     Text("Training Time: \(String(round(getSummedTime()*10)/10)) seconds")
-                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.012: g.size.height * 0.012)
                                     Text("Model Size: \(modelSizes[Int(hiddenLayerSelection)!-1])KB")
-                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                 }
                                 .frame(
                                     minWidth: 0,
@@ -310,6 +368,7 @@ struct ContentView: View {
                             }
                             .padding(.horizontal, 10)
                             .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035)
+                            .padding(.top, -20)
                 
                         }
                         
@@ -321,6 +380,29 @@ struct ContentView: View {
                                 .multilineTextAlignment(.center)
                                 .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
                             
+                            if(colorScheme == .dark) {
+                                //Neural Network
+                                Image(getImageSourceDark())
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding(10)
+                                    .padding(.top, 20)
+                                    .padding(.trailing, 28)
+                                    .transition(.scale.animation(.easeOut))
+                                    .shadow(radius: 2)
+                                
+                            } else {
+                                //Neural Network
+                                Image(getImageSource())
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding(10)
+                                    .padding(.top, 20)
+                                    .padding(.trailing, 28)
+                                    .transition(.scale.animation(.easeOut))
+                                    .shadow(radius: 2)
+                                
+                            }
                             HStack {
                                 VStack (alignment: .leading) {
                                     Text("Hyperparameters:")
@@ -328,7 +410,7 @@ struct ContentView: View {
         
                                     HStack {
                                         Text("Number of Epochs: ")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         Picker("Epochs", selection: $epochsSelection) {
                                             
                                             ForEach(epochs, id: \.self) {
@@ -344,7 +426,7 @@ struct ContentView: View {
                                     
                                     HStack {
                                         Text("Learning Rate: ")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         Picker("Learning Rate", selection: $learningRateSelection) {
                                             
                                             ForEach(learningRates, id: \.self) {
@@ -359,7 +441,7 @@ struct ContentView: View {
                                     
                                     HStack {
                                         Text("Activation Function: ")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                             .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.015: g.size.height * 0.015)
                                         Picker("Activation Function", selection: $activationFunctionSelection) {
                                             
@@ -375,7 +457,7 @@ struct ContentView: View {
                                     
                                     HStack {
                                         Text("Hidden Layers: ")
-                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                            .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         Picker("Hidden Layers", selection: $hiddenLayerSelection) {
                                             
                                             ForEach(hiddenLayers, id: \.self) {
@@ -406,16 +488,33 @@ struct ContentView: View {
         
                                     //do something to put a 0 if there is a number that is too short
                                     Text("Peak Accuracy: \((String(round((getPeakAccuracy()*100)*100)/100)))%")
-                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.012: g.size.height * 0.012)
+                                        .onChange(of: peakAccuracy) { newValue in
+                                            if (secondTime) {
+                                                secondTime = false
+                                                showingAlert2 = true
+                                            }
+                                            if (firstTime) {
+                                                secondTime = true
+                                                showingAlert = true
+                                            }
+                                           
+                                        }
+                                        .alert(isPresented: $showingAlert2) {
+                                            Alert(title: Text("Well done!"), message: Text("Now, take a look at how the model stats have changed. Try to identify patterns and trends!"), dismissButton: .default(Text("Got it!")))
+                                        }
                                     Text("Final Accuracy: \((String(round((getFinalAccuracy()*100)*100)/100)))%")
-                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.012: g.size.height * 0.012)
+                                        .alert(isPresented: $showingAlert) {
+                                            Alert(title: Text("Welcome to your studio!"), message: Text("Try changing some hyperparameters."), dismissButton: .default(Text("Got it!")))
+                                        }
                                     Text("Training Time: \(String(round(getSummedTime()*10)/10)) seconds")
-                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                         .padding(.bottom, g.size.height > g.size.width ? g.size.width * 0.012: g.size.height * 0.012)
                                     Text("Model Size: \(modelSizes[Int(hiddenLayerSelection)!-1])KB")
-                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .semibold))
+                                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.032: g.size.height * 0.032, weight: .regular))
                                 }
                             }
                       

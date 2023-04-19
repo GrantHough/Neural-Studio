@@ -13,7 +13,7 @@ struct LearnView: View {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
                     HStack (alignment: .top) {
-                        Text("Learn")
+                        Text("Appendix")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
                         Spacer()
                         Text("Neural Studio")
@@ -38,7 +38,7 @@ struct LearnView: View {
                                 .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
                                 .padding(.bottom, 8)
                             Text("Learn about the activation function hyperparameter and the ones present on Neural Studio.")
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .regular))
                                
                         }
                         .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
@@ -69,7 +69,7 @@ struct LearnView: View {
                                 .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
                                 .padding(.bottom, 8)
                             Text("Dive into the hyperparameters of learning rates and epochs.")
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .regular))
                                
                         }
                         .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
@@ -88,7 +88,13 @@ struct LearnView: View {
                     }
                     .padding(.vertical, 20)
                     .padding(.horizontal, 10)
-
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        minHeight: 0,
+                        maxHeight: .infinity,
+                        alignment: .center
+                    )
                     
                     Divider()
                     
@@ -101,7 +107,7 @@ struct LearnView: View {
                                 .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
                                 .padding(.bottom, 8)
                             Text("Gain a brief introduction on hidden layers and their effect on neural networks.")
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .regular))
                                
                         }
                         .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
@@ -120,7 +126,13 @@ struct LearnView: View {
                     }
                     .padding(.vertical, 20)
                     .padding(.horizontal, 10)
-
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        minHeight: 0,
+                        maxHeight: .infinity,
+                        alignment: .center
+                    )
                     Divider()
                     
                     HStack(alignment: .center) {
@@ -131,7 +143,7 @@ struct LearnView: View {
                                 .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
                                 .padding(.bottom, 8)
                             Text("Learn about the specific input and output sizes of the neural network in your Studio.")
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .regular))
                                
                         }
                         .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)
@@ -161,7 +173,7 @@ struct LearnView: View {
                                 .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05, weight: .bold))
                                 .padding(.bottom, 8)
                             Text("Learn about the importance of the MNIST dataset.")
-                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .semibold))
+                                .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.038: g.size.height * 0.038, weight: .regular))
                                
                         }
                         .padding(.trailing, g.size.height > g.size.width ? g.size.width * 0.05: g.size.height * 0.05)

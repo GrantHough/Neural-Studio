@@ -16,7 +16,7 @@ struct HiddenLayersView: View {
                         Text("Hidden Layers")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.1: g.size.height * 0.1, weight: .bold))
                         Spacer()
-                        Text("Learn")
+                        Text("Appendix")
                             .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.035: g.size.height * 0.035, weight: .bold))
                             .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.01: g.size.height * 0.01)
                         Image("NeuralStudioLogo1")
@@ -30,7 +30,7 @@ struct HiddenLayersView: View {
                 Divider()
                 
                 Text("Hidden layers are layers of nodes that lie inbetween the input and output layers. They allow for a network's computations to be broken up into multiple steps, adding complexity and allowing for higher accuracy. They are neccesary when attempting to identify complex, non-linear relationships within data.")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.04: g.size.height * 0.04, weight: .regular))
                 
                 Divider()
                 

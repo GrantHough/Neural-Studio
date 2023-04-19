@@ -22,7 +22,7 @@ struct NeuralNetIntroView: View {
                 Spacer()
                 
                 Text("Neural networks are computational models inspired by the human brain, designed to make things like predictions and classifications through layers of interconnected \"neurons\" or nodes.")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .regular))
                 
                 NavigationLink(destination: NeuralNetIntroView2(), label: {
                     Text("Next Page")

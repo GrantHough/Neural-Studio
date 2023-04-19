@@ -22,7 +22,7 @@ struct ImportanceView: View {
                 //maybe put logo here when it is vertical to fill white space? when it's horizontal, it's full
                 
                 Text("Hyperparameters are the only values that you manually modify to optimize neural networks. They can make or break a network.")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .regular))
                 
                 NavigationLink(destination: NeuralNetIntroView(), label: {
                     Text("Next Page")

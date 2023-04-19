@@ -25,7 +25,7 @@ struct WelcomeView: View {
                     //maybe put logo here when it is vertical to fill white space? when it's horizontal, it's full
                     
                     Text("Visualize and quantify the effects of hyperparameters on neural network performance.")
-                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.072: g.size.height * 0.072, weight: .semibold))
+                        .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.072: g.size.height * 0.072, weight: .regular))
                     
                     NavigationLink(destination: IntroductionView(), label: {
                         Text("Get Started")

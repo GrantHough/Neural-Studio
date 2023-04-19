@@ -20,9 +20,12 @@ struct EnterNeuralStudioView: View {
                 
                 Spacer()
                 
-                Text("Now it's time to explore over 1,000 unique combinations of hyperparameters. Let's get started.")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
-                
+                Text("Now it's time to explore over ")
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .regular))
+                + Text("1,000")
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .bold))
+                + Text(" unique combinations of hyperparameters. Let's get started.")
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .regular))
                 NavigationLink(destination: HomeView(), label: {
                     Text("Enter Neural Studio")
                         .padding(.horizontal, g.size.height > g.size.width ? g.size.width * 0.041: g.size.height * 0.041)

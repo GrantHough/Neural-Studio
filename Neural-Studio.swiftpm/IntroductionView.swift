@@ -23,7 +23,7 @@ struct IntroductionView: View {
                 Spacer()
                 			
                 Text("It's an app that allows you to try various combinations of hyperparameters to see how they affect the performance of a neural network trained to classify images (i.e., of handwritten digits).")
-                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .semibold))
+                    .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .regular))
                 
                 NavigationLink(destination: ImportanceView(), label: {
                     Text("Next Page")
