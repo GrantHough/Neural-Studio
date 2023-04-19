@@ -227,6 +227,7 @@ struct ContentView: View {
                                     .padding(.trailing, 28)
                                     .transition(.scale.animation(.easeOut))
                                     .shadow(radius: 2)
+                                    .opacity(0.9)
                                 
                             } else {
                                 //Neural Network
@@ -390,6 +391,7 @@ struct ContentView: View {
                                     .padding(.trailing, 28)
                                     .transition(.scale.animation(.easeOut))
                                     .shadow(radius: 2)
+                                    .opacity(0.9)
                                 
                             } else {
                                 //Neural Network
