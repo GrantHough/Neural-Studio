@@ -37,7 +37,7 @@ struct HomeView: View {
                             Text("Your Studio")
                                 .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.06: g.size.height * 0.06, weight: .bold))
                                 .padding(.bottom, 8)
-                            Text("Customize hyperparameters and quantify how they affect a neural network's performance in real-time.")
+                            Text("Customize hyperparameters and quantify how their effects a neural network's performance in real-time.")
                                 .font(.system(size: g.size.height > g.size.width ? g.size.width * 0.045: g.size.height * 0.045, weight: .regular))
                                
                         }
